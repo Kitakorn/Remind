@@ -1,0 +1,60 @@
+import 'dart:async';
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  DateTime _timenow = DateTime.now();
+
+  @override
+  void initState() {
+    super.initState();
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (_timenow.second != DateTime.now().second) {
+        setState(() {
+          _timenow = DateTime.now();
+        });
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+      appBar: AppBar(
+        title: const Text('My App'),
+        backgroundColor: Colors.green,
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(
+              height: 20,
+            ),
+            const Text(
+              'Time now',
+              style: TextStyle(fontSize: 25, color: Colors.black),
+            ),
+            Text(
+              '${_timenow.hour}:${_timenow.minute}:${_timenow.second}',
+              style: const TextStyle(color: Colors.blue, fontSize: 30),
+            )
+          ],
+        ),
+      ),
+    ));
+  }
+}

@@ -1,0 +1,4 @@
+yellow: #FFC529 
+orange: #FE724C
+black: #272D2F
+gray: #D7D7D7

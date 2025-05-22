@@ -1,0 +1,4 @@
+6.00-9.45 : breakfast
+10.00 : Snacktime
+13.00 : Lunch
+18.00 : Dinner
